@@ -11,6 +11,6 @@ Internal - Qu Web Developer Challenge (Frontend)
 - You can set or update cross values in **app/resources/constants.js**
 
 ## Live URL
-```https://hopeful-mcnulty-23f8e3.netlify.app/```
+[netlify.com](https://hopeful-mcnulty-23f8e3.netlify.app/)
 - We're hosting the challenge on [netlify.com](https://app.netlify.com/teams/cristiansoria/sites). 
 
