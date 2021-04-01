@@ -12,9 +12,8 @@ const ErrorPage = () => {
       </div>
       <div className="error-container">
         <p>
-          A server error has occurred and we’re working to fix the problem!
+         This is embarassing. We can't find what you were looking for.
           </p>
-        <p>We will be up and running shortly.</p>
         <div>
           <Link to={`/`}>
               Accept
