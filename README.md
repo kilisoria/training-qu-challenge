@@ -12,5 +12,3 @@ Internal - Qu Web Developer Challenge (Frontend)
 
 ## Live URL
 [https://hopeful-mcnulty-23f8e3.netlify.app/](https://hopeful-mcnulty-23f8e3.netlify.app/)
-- We're hosting the challenge on [netlify.com](https://app.netlify.com/teams/cristiansoria/sites). 
-
