@@ -7,10 +7,10 @@ export const planetsRequest = () => {
   };
 };
 
-export const planetsSuccess = data => {
+export const planetsSuccess = planets => {
   return {
     type: types.PLANETS_SUCCESS,
-    data,
+    planets,
   };
 };
 
@@ -28,7 +28,8 @@ export const getPlanets = () => {
 
     try {
       const responseData = await swapiService.getPlanets();
-      const { data: planets } = responseData;
+      const { data } = responseData;
+      const { results: planets } = data;
      
       dispatch(planetsSuccess(planets));
     } catch (err) {

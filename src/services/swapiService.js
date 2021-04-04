@@ -5,9 +5,9 @@ import { API_MODELS } from '../resources/constants';
 
 // PLANETS
 export const getPlanets = () => {
-  return get(`${API_MODELS.PATIENT}/profile/`);
+  return get(`${API_MODELS.PLANETS}/`);
 };
 
-export const getPlanetById = async sessionId => {
-  return get(`${API_MODELS.CAREGIVER}/${API_MODELS.SESSIONS}/${sessionId}/`);
+export const getPlanetById = async planetId => {
+  return get(`${API_MODELS.PLANETS}/${planetId}/`);
 };

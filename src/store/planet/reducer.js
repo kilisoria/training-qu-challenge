@@ -13,6 +13,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case types.PLANETS_SUCCESS:
+      console.log(action);
       return {
         ...state,
         ...{

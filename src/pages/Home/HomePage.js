@@ -1,4 +1,7 @@
-import logo from '../../assets/logo.png';
+import {
+  Link,
+} from "react-router-dom";
+import logo from '../../assets/logo.png'
 import '../../App.css';
 
 const HomePage = () => {
@@ -8,15 +11,8 @@ const HomePage = () => {
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     Web Developer Challenge
-        </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Intro
-        </a>
+                </p>   
+             <Link className="App-link" to="/planets">Go</Link>
             </header>
         </div>
     )
