@@ -1,6 +1,5 @@
-# training-qu-challenge
-Internal - Qu Web Developer Challenge (Frontend)
-
+# Qu Challenge
+Web Developer Challenge (Frontend)
 
 ## Start application
 
