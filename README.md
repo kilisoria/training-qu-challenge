@@ -1,7 +1,7 @@
 # Qu Challenge
 Web Developer Challenge (Frontend)
 
-NOTE: Temporally public - when the revision will be done, it will be closed.
+NOTE: Temporally public repository. When the revision will be done it will be closed.
 
 ## Start application
 
