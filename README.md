@@ -1,6 +1,8 @@
 # Qu Challenge
 Web Developer Challenge (Frontend)
 
+NOTE: Temporally public - when the revision will be done, it will be closed.
+
 ## Start application
 
 - Install packages `npm install` or `yarn install`
