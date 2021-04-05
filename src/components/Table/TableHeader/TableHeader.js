@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
@@ -68,4 +68,4 @@ TableHeader.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
-export default TableHeader;
+export default memo(TableHeader);

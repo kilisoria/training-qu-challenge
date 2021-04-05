@@ -1,20 +1,24 @@
-import {
-  Link,
-} from "react-router-dom";
-import logo from '../../assets/logo.png'
+import Container from '@material-ui/core/Container';
+
+import { AppContainer,CoreLink } from '../../styled/Common.styled';
+import { HomeHeader, HomeImg } from './HomePage.styled';
+
+import logo from '../../assets/logo.png';
 import '../../App.css';
 
 const HomePage = () => {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Web Developer Challenge
-                </p>   
-             <Link className="App-link" to="/planets">Go</Link>
-            </header>
-        </div>
+        <Container maxWidth="md">
+            <AppContainer className="App">
+                <HomeHeader>
+                    <HomeImg src={logo} alt="logo" />
+                    <p>
+                        Web Developer Challenge
+                      </p>
+                    <CoreLink to="/planets">Go</CoreLink>
+                </HomeHeader>
+            </AppContainer>
+        </Container>
     )
 };
 

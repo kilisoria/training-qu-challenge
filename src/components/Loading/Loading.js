@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import logo from '../../assets/loading.gif';
 
 import { LoadingDiv } from './Loading.styled';      
@@ -9,4 +10,4 @@ const Loading = () => {
         </LoadingDiv>);
 }
 
-export default Loading;
+export default memo(Loading);

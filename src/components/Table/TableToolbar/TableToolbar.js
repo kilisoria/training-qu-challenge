@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
@@ -49,4 +49,4 @@ TableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default TableToolbar;
+export default memo(TableToolbar);

@@ -5,8 +5,6 @@ import Container from '@material-ui/core/Container';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import Button from '@material-ui/core/Button';
 
-import "./ErrorPage.css";
-
 const ErrorPage = () => {
   return (
     <Container maxWidth="md">
