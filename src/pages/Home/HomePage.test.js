@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import ErrorPage from './ErrorPage';
+import HomePage from './HomePage';
 
-describe('GIVEN ErrorPage component', () => {
+xdescribe('GIVEN HomePage component', () => {
   describe('WHEN renders by default', () => {
     it('THEN should match the snapshot', () => {
-      const tree = renderer.create(<ErrorPage/>).toJSON();
+      const tree = renderer.create(<HomePage />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

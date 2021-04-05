@@ -7,6 +7,10 @@ export const DATE_TIME_FORMATS = {
   MMM_D_YYYY: 'MMM D, YYYY',
 };
 
+export const COLORS = {
+  RED: 'rgb(169,73,81)',
+}
+
 export const STYLES = {
   TEXT: {
     TRANSFORMATION: {
@@ -38,4 +42,9 @@ export const STYLES = {
     140: '140px',
     200: '200px',
   },
+};
+
+export const ORDERS = {
+  DESC: 'desc',
+  ASC: 'asc'
 };

@@ -21,6 +21,27 @@ export const planetsError = message => {
   };
 };
 
+export const planetRequest = () => {
+  return {
+    type: types.PLANET_BEGIN,
+  };
+};
+
+export const planetSuccess = planet => {
+  return {
+    type: types.PLANET_SUCCESS,
+    planet,
+  };
+};
+
+export const planetError = message => {
+  return {
+    type: types.PLANET_FAILED,
+    message,
+  };
+};
+
+
 // Action Creators
 export const getPlanets = () => {
   return async dispatch => {
@@ -38,3 +59,16 @@ export const getPlanets = () => {
   };
 };
 
+export const getPlanet = planetId => {
+  return async dispatch => {
+    dispatch(planetRequest());
+
+    try {
+      const responseData = await swapiService.getPlanet(planetId);
+      const { data: planet } = responseData;
+      dispatch(planetSuccess(planet));
+    } catch (err) {
+      dispatch(planetError(err.message));
+    }
+  };
+};

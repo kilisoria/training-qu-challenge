@@ -1,26 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import { Alert, AlertTitle } from '@material-ui/lab';
+import Button from '@material-ui/core/Button';
+
 import "./ErrorPage.css";
 
 const ErrorPage = () => {
   return (
-    <div>
-      <div color="danger light">
-        <h4 className="alert-heading">
-          <p>Oh, no! We ran into an issue.</p>
-        </h4>
-      </div>
-      <div className="error-container">
-        <p>
-         This is embarassing. We can't find what you were looking for.
-          </p>
-        <div>
-          <Link to={`/`}>
-              Accept
-          </Link>
+    <Container maxWidth="md">
+      <Typography component="div" style={{ backgroundColor: '#A94951', paddingTop: 10, height: '80vh' }}>
+        <Alert severity="error">
+          <AlertTitle>Oh, no! We ran into an issue.</AlertTitle>
+  This is embarassing.<strong>We can't find what you were looking for.</strong>
+        </Alert>
+        <div style={{ textAlign: 'center', marginTop: 40 }}>
+          <Button variant="contained" color="primary" href="/">
+            Back
+         </Button>
         </div>
-      </div>
-    </div>
+      </Typography>
+    </Container>
   );
 };
 

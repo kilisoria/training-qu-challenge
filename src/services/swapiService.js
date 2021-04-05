@@ -8,6 +8,6 @@ export const getPlanets = () => {
   return get(`${API_MODELS.PLANETS}/`);
 };
 
-export const getPlanetById = async planetId => {
+export const getPlanet = async planetId => {
   return get(`${API_MODELS.PLANETS}/${planetId}/`);
 };

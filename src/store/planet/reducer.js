@@ -34,6 +34,37 @@ const reducer = (state = initialState, action) => {
         }
       };
 
+      case types.PLANET_BEGIN:
+      return {
+        ...state,
+        ...{
+          isFetching: true,
+          fetched: false,
+        }
+      };
+
+    case types.PLANET_SUCCESS:
+      console.log(action);
+      return {
+        ...state,
+        ...{
+          isFetching: false,
+          fetched: true,
+          planet: action.planet
+        }
+      };
+
+    case types.PLANET_FAILED:
+      return {
+        ...state,
+        ...{
+          isFetching: false,
+          fetched: false,
+          error: true,
+          errorMessage: action.message,
+        }
+      };
+
     default:
       return state;
   }

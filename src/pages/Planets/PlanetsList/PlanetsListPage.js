@@ -18,7 +18,11 @@ import TableToolbar from '../../../components/Table/TableToolbar/TableToolbar';
 import StyledTableCell from '../../../components/Table/StyledTableCell/StyledTableCell';
 import StyledTableRow from '../../../components/Table/StyledTableRow/StyledTableRow';
 
+import Loading from '../../../components/Loading/Loading';
+
 import { getPlanets } from '../../../store/planet/actions';
+
+import { ORDERS } from '../../../resources/constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 const PlanetsListPage = ({ planet, getPlanets }) => {
   const history = useHistory();
   const classes = useStyles();
-  const [order, setOrder] = useState('asc');
+  const [order, setOrder] = useState(ORDERS.ASC);
   const [orderBy, setOrderBy] = useState('name');
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(0);
@@ -60,13 +64,14 @@ const PlanetsListPage = ({ planet, getPlanets }) => {
 
   useEffect(() => {
     if (planet.fetched) {
-      const customPlanets = planet.planets.map(planet => {
+      const customPlanets = planet.planets.map((planet, index) => {
         return {
+          id: index + 1,
           name: planet.name,
           gravity: planet.gravity,
           terrain: planet.terrain,
           climate: planet.climate,
-          population: planet.population
+          population: planet.population,
         }
       });
 
@@ -75,20 +80,22 @@ const PlanetsListPage = ({ planet, getPlanets }) => {
   }, [planet.planets, planet.fetched]);
 
   const stableSort = (array, comparator) => {
-    const stabilizedThis = array.map((el, index) => [el, index]);
-    stabilizedThis.sort((a, b) => {
+    const stabilized = array.map((el, index) => [el, index]);
+    stabilized.sort((a, b) => {
       const order = comparator(a[0], b[0]);
+
       if (order !== 0) return order;
       return a[1] - b[1];
     });
 
-    return stabilizedThis.map((el) => el[0]);
+    return stabilized.map((el) => el[0]);
   };
 
   const descendingComparator = (a, b, orderBy) => {
     if (b[orderBy] < a[orderBy]) {
       return -1;
     }
+
     if (b[orderBy] > a[orderBy]) {
       return 1;
     }
@@ -97,20 +104,20 @@ const PlanetsListPage = ({ planet, getPlanets }) => {
   };
 
   const getComparator = (order, orderBy) => {
-    return order === 'desc'
+    return order === ORDERS.DESC
       ? (a, b) => descendingComparator(a, b, orderBy)
       : (a, b) => -descendingComparator(a, b, orderBy);
   };
 
   const handleRequestSort = useCallback((event, property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
+    const isAsc = orderBy === property && order === ORDERS.ASC;
+    setOrder(isAsc ? ORDERS.DESC : ORDERS.ASC);
     setOrderBy(property);
   }, [order, orderBy]);
 
-  const handleClick = useCallback((event, name) => {
-    setSelected(name);
-    history.push('/planet-details');
+  const handleClick = useCallback((event, id) => {
+    setSelected(id);
+    history.push('/planet-details', { id });
   }, [history]);
 
   const handleChangePage = useCallback((event, newPage) => {
@@ -124,6 +131,8 @@ const PlanetsListPage = ({ planet, getPlanets }) => {
   
   const isSelected = (name) => selected.indexOf(name) !== -1;
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
+  if (!rows || rows.length === 0) return <Loading />;
 
   return <section>
      <div className={classes.root}>
@@ -153,7 +162,7 @@ const PlanetsListPage = ({ planet, getPlanets }) => {
                   return (
                     <StyledTableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      onClick={(event) => handleClick(event, row.id)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}

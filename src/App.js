@@ -7,7 +7,7 @@ import {
 import configureStore from './store/configureStore';
 
 import HomePage from './pages/Home/HomePage';
-import PlanetsListPage from './pages/Planets/PlanetsList/PatientsListPage';
+import PlanetsListPage from './pages/Planets/PlanetsList/PlanetsListPage';
 import PlanetPage from './pages/Planets/Planet/PlanetPage';
 import ErrorPage from './pages/Error/ErrorPage';
 
